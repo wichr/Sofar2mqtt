@@ -16,7 +16,7 @@ Designed to work with TTL modules with or without the DR and RE flow control pin
 
 Subscribe your MQTT client to:
 
-sofar2mqtt/state
+Sofar2mqtt/state
 
 Which provides:
 
@@ -24,7 +24,8 @@ running_state
 grid_voltage  
 grid_current  
 grid_freq  
-battery_power  
+systemIO_power (AC side of inverter)  
+battery_power  (DC side of inverter)  
 battery_voltage  
 battery_current  
 batterySOC  
@@ -43,14 +44,15 @@ solarPVAmps
 
 With the inverter in Passive Mode, send MQTT messages to:
 
-sofar2mqtt/set/standby   - send value "true"  
-sofar2mqtt/set/auto   - send value "true" or "battery_save"  
-sofar2mqtt/set/charge   - send values in the range 0-3000 (watts)  
-sofar2mqtt/set/discharge   - send values in the range 0-3000 (watts) 
+Sofar2mqtt/set/standby   - send value "true"  
+Sofar2mqtt/set/auto   - send value "true" or "battery_save"  
+Sofar2mqtt/set/charge   - send values in the range 0-3000 (watts)  
+Sofar2mqtt/set/discharge   - send values in the range 0-3000 (watts) 
 
 battery_save is a hybrid auto mode that will charge from excess solar but not discharge.
 
-(c)Colin McGerty 2021 colin@mcgerty.co.uk  
+(c)Colin McGerty 2021 colin@mcgerty.co.uk
+Major version 2.0 rewrite by Adam Hill sidepipeukatgmaildotcom
 Thanks to Rich Platts for hybrid model code and testing.  
 calcCRC by angelo.compagnucci@gmail.com and jpmzometa@gmail.com
 
@@ -94,9 +96,9 @@ Here's how it looks when completed.
 
 # Flashing
 
-Open either ME3000SP.ino or HYBRID.ino (as appropriate for your inverter model) in the Arduino IDE.
+Edit the file Sofar2mqtt.ino and remove the // at the start of the second OR third line as appropriate for your inverter model (ME3000SP or a Hybrid HYD model).
 
-Edit it with your wifi network name and password and your mqtt server details. If you need more than one Sofar2mqtt on your network, make sure you give them unique device names.  
+Add your wifi network name and password and your mqtt server details in the section below. If you need more than one Sofar2mqtt on your network, make sure you give them unique device names.  
 
 You'll need the libraries for the ESP8266. Follow [this guide](https://randomnerdtutorials.com/how-to-install-esp8266-board-arduino-ide/) if you haven't completed that step before.
 
@@ -109,7 +111,7 @@ Add a few more libraries using the Manage Libraries menu:
 
 ...and upload.
 
-Run it on the desktop, not connected to you invertor, to test that wifi and mqtt are connected and see some messages in the serial monitor.
+Run it on the desktop, not connected to your invertor, to test that wifi and mqtt are connected and see some messages in the serial monitor.
 The OLED screen should show "Online" to indicate a connection to WiFi and MQTT. It will alternate between "RS485 Error" and "CRC-FAULT" to indicate that the inverter is not connected.
 
 # Connect to Inverter
