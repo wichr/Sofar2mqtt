@@ -1,0 +1,172 @@
+views:
+  - theme: Backend-selected
+    title: Control
+    badges: []
+    cards:
+      - type: entities
+        entities:
+          - entity: sensor.sofar_inverter_state
+            name: Inverter State
+          - entity: sensor.battery_power
+            name: Battery Power
+          - entity: sensor.sofar_grid_voltage
+            name: Grid Voltage
+          - entity: sensor.sofar_grid_power
+            name: Grid Power
+          - entity: sensor.sofar_load
+            name: House Requirements
+        title: Information
+      - square: false
+        columns: 1
+        type: grid
+        title: Normal Modes
+        cards:
+          - show_name: true
+            show_icon: false
+            type: button
+            tap_action:
+              action: toggle
+            entity: button.sofar_set_auto
+            hold_action:
+              action: none
+            name: Click To Set Self-use mode
+            icon_height: 50px
+          - show_name: true
+            show_icon: false
+            type: button
+            tap_action:
+              action: toggle
+            entity: button.sofar_set_battery_save
+            name: Click To Set Time-of-use
+          - show_name: true
+            show_icon: false
+            type: button
+            tap_action:
+              action: toggle
+            entity: button.sofar_set_passive
+            name: Click To Set Passive mode
+          - show_name: true
+            show_icon: false
+            type: button
+            tap_action:
+              action: toggle
+            entity: button.sofar_set_timing
+            name: Click To Set Timing  mode
+          - show_name: true
+            show_icon: false
+            type: button
+            tap_action:
+              action: toggle
+            entity: button.sofar_set_peak
+            name: Click To Set Peak clipping mode
+          - show_name: true
+            show_icon: false
+            type: button
+            tap_action:
+              action: toggle
+            entity: button.sofar_set_off_grid
+            name: Click To Set Off-grid mode
+      - square: false
+        columns: 1
+        type: grid
+        title: Standby Mode
+        cards:
+          - show_name: true
+            show_icon: false
+            type: button
+            tap_action:
+              action: toggle
+            entity: button.sofar_set_standby
+            hold_action:
+              action: none
+            name: Click To Set Standby Mode
+            icon_height: 50px
+      - square: false
+        columns: 1
+        type: grid
+        title: Charge in Passive Mode
+        cards:
+          - type: entities
+            entities:
+              - entity: input_number.input_house_charge_watts
+                name: Charge At (Watts)
+          - show_name: true
+            show_icon: false
+            type: button
+            tap_action:
+              action: toggle
+            entity: button.sofar_set_charge
+            hold_action:
+              action: none
+            name: Click To Set Charge Mode
+            icon_height: 50px
+      - square: false
+        columns: 1
+        type: grid
+        title: Discharge in Passive Mode
+        cards:
+          - type: entities
+            entities:
+              - entity: input_number.input_house_discharge_watts
+                name: Discharge At (Watts)
+          - show_name: true
+            show_icon: false
+            type: button
+            tap_action:
+              action: toggle
+            entity: button.sofar_set_discharge
+            hold_action:
+              action: none
+            name: Click To Set Discharge Mode
+            icon_height: 50px
+            show_state: false
+      - square: false
+        columns: 1
+        type: grid
+        title: Bat Mode
+        cards:
+          - type: entities
+            entities:
+              - entity: input_number.input_house_charge_cur
+                name: Charge At (Watts)
+          - show_name: true
+            show_icon: false
+            type: button
+            tap_action:
+              action: toggle
+            entity: button.sofar_set_battery_current
+            hold_action:
+              action: none
+            name: Click To Set Charge Mode
+            icon_height: 50px
+      - square: false
+        columns: 1
+        type: grid
+        title: antireflux
+        cards:
+          - type: entities
+            entities:
+              - entity: input_number.input_house_antireflux_watts
+                name: antireflux At (Watts)
+          - show_name: true
+            show_icon: false
+            type: button
+            tap_action:
+              action: toggle
+            entity: button.sofar_set_antireflux
+            hold_action:
+              action: none
+            name: Click To Set antireflux
+            icon_height: 50px
+          - show_name: true
+            show_icon: false
+            type: button
+            tap_action:
+              action: toggle
+            entity: button.sofar_set_threephaselimit
+            hold_action:
+              action: none
+            name: Click To Set threephaselimit
+            icon_height: 50px
+title: Anemone Inverter Control
+
