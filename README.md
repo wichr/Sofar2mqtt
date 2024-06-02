@@ -93,7 +93,12 @@ The OLED screen should show "Online" to indicate a connection to WiFi and MQTT. 
 Connect the Sofar2mqtt unit to a 5v micro USB power supply.
 Now connect wires A and B to the two wire RS485 input of your inverter, which is marked as 485s on the image of the inverter below.
 
-![ME3000SP Data Connections](pics/485s.jpg)
+![ME3000SP Data Connections](pics/sofar-hyd-rs.jpeg)
+
+# Integrating Sofar2mqtt with Home Assistant
+
+[Full instructions to get going with a Sofar2mqtt, Raspberry Pi and Home Assistant](https://github.com/dxoverdy/Integrating-Sofar2mqtt-with-Home-Assistant/tree/master)
+![Mode control](pics/mode-control.png)
 
 # Troubleshooting
 
